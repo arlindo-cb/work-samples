@@ -1,0 +1,8 @@
+Please see the MP4 for a quick demo.
+For our solution, we have a multi-agent system with a single “conductor” on top.
+At the center is our Supervisor Agent – think of it as the orchestral conductor. When a new ticket comes in, it coordinates all the other agents so they work together as one system.
+First, it calls the Machine Learning Agent. This agent has learned from historical dispatches which combinations of job, technician, and distance tend to succeed. So for every new dispatch, it predicts two things: the probability we fix it on the first visit, and the probability it’s successful overall.
+Next, the Constraints Optimization Agent applies real-world rules. It enforces hard constraints like matching the right skill and ensuring the tech is available, and it also scores soft factors like drive time, current workload, and of course the success probabilities from the ML Agent. Using a combined score, it selects the best technician for each dispatch.
+The UI + SQL Agent is what teams actually touch. It’s a ticketing interface that writes to the backend tables and automatically triggers the first two agents whenever someone creates or updates a dispatch.
+Once assignments are made, the Explanation Agent generates a plain-English “why did we pick this technician” summary—covering reasons like distance, skill, workload, and predicted success—so the system isn’t just a black box.
+Finally, the Strategic Insights Agent looks across all assignments and gives business leaders strategic insights, such as which cities are short on certain skills, which would signal where we may need hiring or retraining. 
